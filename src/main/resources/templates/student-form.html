@@ -21,8 +21,22 @@
     student.getLastName()-->
     <br><br>
 
+    Country:
+
+    <select th:field="*{country}">
+
+        <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}" ></option>
+                <!--Value sent during form submission-->
+                <!--Text displayed to user-->
+                <!--loop over the list of countries-->
+
+    </select>
+
+    <br><br>
+
     <input type="submit" value="Submit" />
 
 </form>
+
 </body>
 </html>

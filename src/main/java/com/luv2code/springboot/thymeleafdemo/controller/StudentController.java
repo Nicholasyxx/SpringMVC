@@ -1,5 +1,6 @@
 package com.luv2code.springboot.thymeleafdemo.controller;
 import com.luv2code.springboot.thymeleafdemo.model.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,9 +8,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.sql.SQLOutput;
+import java.util.List;
 
 @Controller
 public class StudentController {
+
+    @Value("${countries}")// name of the properties， 你可以通过 @Value 注解将 countries 属性的值注入到 Spring 管理的 bean 中，如下所示：
+    private List<String> countries; // inject from app properties file
+
+
+
     @GetMapping("/showStudentForm")
     public String showForm(Model theModel){
 
@@ -19,6 +27,8 @@ public class StudentController {
         // add student object to the model
         theModel.addAttribute("student", theStudent);
 
+        // add the list of countries to the model
+        theModel.addAttribute("countries", countries);//add the list of countries to the model
 
         return "student-form";
     }
