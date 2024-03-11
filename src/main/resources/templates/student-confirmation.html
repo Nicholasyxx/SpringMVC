@@ -8,11 +8,15 @@
 
 <h3>Student Confirmation</h3>
 
-The student is confirmed: <span th:text="${student.firstName} + ' ' + ${student.lastName}" />
+The student is confirmed: <span th:text="' ' + ${student.firstName} + ' ' + ${student.lastName}" />
 
 <br><br>
 
-Country:<span th:text="${student.country}" />
+Country:<span th:text=" ' ' + ${student.country}" />
+
+<br><br>
+
+Favorite programming Language:<span th:text=" ' ' + ${ student.favoriteLanguage}" /> <!-- it will call getter method-->
 
 
 </body>

@@ -17,6 +17,9 @@ public class StudentController {
     private List<String> countries; // inject from app properties file
 
 
+    @Value("${languages}")// name of the properties， 你可以通过 @Value 注解将 countries 属性的值注入到 Spring 管理的 bean 中，如下所示：
+    private List<String> languages; // inject from app properties file
+
 
     @GetMapping("/showStudentForm")
     public String showForm(Model theModel){
@@ -29,6 +32,9 @@ public class StudentController {
 
         // add the list of countries to the model
         theModel.addAttribute("countries", countries);//add the list of countries to the model
+
+        // add the list of languages to the model
+        theModel.addAttribute("languages", languages);
 
         return "student-form";
     }

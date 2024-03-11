@@ -34,6 +34,28 @@
 
     <br><br>
 
+    Favorite Programming Language:
+
+    <input type="radio" th:field="*{favoriteLanguage}"
+                        th:each="templing : ${languages}"
+                        th:value="${templing}"
+                        th:text="${templing}"/>
+
+
+
+    <!-- USed before we added to properties file
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="Go">Go</input>
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">java</input>
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>
+      "radio button" likes JButton
+         th:field Binding to property on Student object,
+         th:value sent during form submission
+         final Go displayed to user -->
+
+
+
+    <br><br>
+
     <input type="submit" value="Submit" />
 
 </form>
